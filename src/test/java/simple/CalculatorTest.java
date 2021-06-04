@@ -38,6 +38,12 @@ public class CalculatorTest {
     }
 
     @Test
+    public void additionWithDecimalNumbers() throws Exception {
+        Double result = new Calculator(supportedOperators).calculate("5.1+4.8+3");
+        assertEquals(12.9, result, 0.1d);
+    }
+
+    @Test
     public void additionAndSubtraction() throws Exception {
         Double result = new Calculator(supportedOperators).calculate("5-4+3-2+1");
         assertEquals(3, result, 0d);

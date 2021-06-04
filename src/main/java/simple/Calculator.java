@@ -32,7 +32,7 @@ public class Calculator {
         for (int i = 0; i < chars.length; i++) {
             if (chars[i] >= ZERO && chars[i] <= NINE) {
                 String num = String.valueOf(chars[i]);
-                while (i < chars.length - 1 && chars[i + 1] >= ZERO && chars[i + 1] <= NINE) {
+                while (i < chars.length - 1 && isNextCharDigitOrDecimal(chars[i + 1])) {
                     num = num + chars[i + 1];
                     i++;
                 }
@@ -66,6 +66,10 @@ public class Calculator {
         }
         evaluateExpression(operators, operands);
         return operands.pop();
+    }
+
+    private boolean isNextCharDigitOrDecimal(char nextChar) {
+        return (nextChar >= ZERO && nextChar <= NINE) || nextChar =='.';
     }
 
     private boolean calculatePrevious(char currentOp, char prevOp) {
