@@ -1,9 +1,11 @@
+
 plugins {
     id 'java'
+    id 'application'
 }
-
 group 'org.example'
 version '1.0-SNAPSHOT'
+
 
 repositories {
     mavenCentral()
@@ -14,7 +16,12 @@ test {
 dependencies {
     testCompile 'org.junit.jupiter:junit-jupiter:5.5.2'
 }
-
+application {
+    mainClassName = 'Application'
+}
+run{
+    standardInput = System.in
+}
 sourceSets {
     main.java.srcDirs += 'src/main/java'
     test.java.srcDirs += 'src/test/java'
