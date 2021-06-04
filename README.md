@@ -15,6 +15,6 @@ Build the app by executing command : `gradlew clean build` from within the root 
 
 Example :
 
-Input : (6+5)/3-(4*3-2/4*6)*2+9
+Input : (6+5)/3-(4\*3-2/4*6)*2+9
 
-Output : -7.83
+Output : -5.33
