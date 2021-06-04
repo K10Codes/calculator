@@ -17,9 +17,11 @@ public class Calculator {
     private static final String INCORRECT_USE_OF_PARENTHESIS = "Incorrect use of parenthesis.";
 
     private Map<Character, Operator> symbolToOperator;
+    private List<Character> precedenceOrder;
 
     public Calculator(List<Operator> supportedOperators) {
         this.symbolToOperator = supportedOperators.stream().collect(Collectors.toMap(o -> o.getSymbol(), o -> o));
+        this.precedenceOrder = supportedOperators.stream().map(Operator::getSymbol).collect(Collectors.toList());
     }
 
     public Double calculate(String input) throws Exception {
@@ -66,12 +68,11 @@ public class Calculator {
         return operands.pop();
     }
 
-    private boolean calculatePrevious(char currentOp, Character prevOp) {
+    private boolean calculatePrevious(char currentOp, char prevOp) {
         if (prevOp == RIGHT_PARENTHESIS || prevOp == LEFT_PARENTHESIS) {
             return false;
         }
-        if ((currentOp == MULTIPLICATION || currentOp == DIVISION) &&
-                (prevOp == ADDITION || prevOp == SUBTRACTION)) {
+        if (precedenceOrder.indexOf(currentOp) < precedenceOrder.indexOf(prevOp)) {
             return false;
         }
         return true;

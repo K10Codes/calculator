@@ -16,7 +16,7 @@ public class CalculatorTest {
 
     @BeforeEach
     void setup() {
-        supportedOperators = List.of(new Division(), new Multiplication(), new Addition(), new Subtraction());
+        supportedOperators = List.of(new Division(), new Multiplication(), new Subtraction(), new Addition());
     }
 
     @Test

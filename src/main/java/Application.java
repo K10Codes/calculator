@@ -14,6 +14,6 @@ public class Application {
     }
 
     private static List<Operator> getSupportedOperators() {
-        return List.of(new Division(), new Multiplication(), new Addition(), new Subtraction());
+        return List.of(new Division(), new Multiplication(), new Subtraction(), new Addition());
     }
 }
