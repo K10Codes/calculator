@@ -10,7 +10,8 @@ public class Application {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter input expression");
         String input = sc.nextLine();
-        new Calculator(getSupportedOperators()).calculate(input);
+        Double result = new Calculator(getSupportedOperators()).calculate(input);
+        System.out.println("Result : "+ result);
     }
 
     private static List<Operator> getSupportedOperators() {
