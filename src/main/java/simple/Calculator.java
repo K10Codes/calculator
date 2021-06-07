@@ -65,11 +65,12 @@ public class Calculator {
 
         }
         evaluateExpression(operators, operands);
+
         return operands.pop();
     }
 
     private boolean isNextCharDigitOrDecimal(char nextChar) {
-        return (nextChar >= ZERO && nextChar <= NINE) || nextChar =='.';
+        return (nextChar >= ZERO && nextChar <= NINE) || nextChar == '.';
     }
 
     private boolean calculatePrevious(char currentOp, char prevOp) {
@@ -95,6 +96,7 @@ public class Calculator {
         Double n1 = operands.pop();
         Double n2 = operands.pop();
         operands.push(getOperator(operator).perform(n2, n1));
+
     }
 
     private Operator getOperator(char c) throws Exception {

@@ -6,12 +6,16 @@ import java.util.Scanner;
 
 public class Application {
 
-    public static void main(String arg[]) throws Exception {
+    public static void main(String arg[]) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter input expression");
         String input = sc.nextLine();
-        Double result = new Calculator(getSupportedOperators()).calculate(input);
-        System.out.println("Result : "+ result);
+        try {
+            Double result = new Calculator(getSupportedOperators()).calculate(input);
+            System.out.println("Result : " + result);
+        } catch (Exception e) {
+            System.out.println("Error encountered : " + e.getMessage());
+        }
     }
 
     private static List<Operator> getSupportedOperators() {

@@ -1,7 +1,5 @@
 package simple.operators;
 
-import simple.operators.Operator;
-
 import static simple.Constants.MULTIPLICATION;
 
 public class Multiplication implements Operator {
